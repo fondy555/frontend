@@ -8,7 +8,10 @@
 					<div><i class="el-icon-message"></i>郵箱：{{ footerData.email }}</div>
 					<div><i class="el-icon-location-information"></i>地址：{{ footerData.address }}</div>
 				</div>
+        <div>
 				<img v-if="footerData" :src="footerData.weChatImage" style="width: 150px; height: 150px"/>
+        <div style="text-align: center;">wechat</div>
+        </div>
 			</div>
 		</div>
 		<div class="other center" v-if="footerData">
@@ -34,40 +37,40 @@ export default {
                 phone: '123-456-7890',
                 email: 'example@example.com',
                 address: '默認地址',
-                weChatImage: 'default-wechat-image.png',
+                weChatImage: require('@/assets/barcode.png'),
             }
         };
     },
 
     mounted() {
-        // 获取缓存的数据
-        const cachedFooterData = localStorage.getItem('footerData');
-        // 如果有缓存的数据，则使用缓存的数据
-        if (cachedFooterData) {
-            this.footerData = JSON.parse(cachedFooterData);
-        } else {
-            this.fetchFooterData();
-        }
+        // // 获取缓存的数据
+        // const cachedFooterData = localStorage.getItem('footerData');
+        // // 如果有缓存的数据，则使用缓存的数据
+        // if (cachedFooterData) {
+        //     this.footerData = JSON.parse(cachedFooterData);
+        // } else {
+        //     this.fetchFooterData();
+        // }
     },
 
     methods: {
         // 获取Footer数据
-        async fetchFooterData() {
-            try {
-                // 获取Footer数据
-                const response = await getFooterData();
-                // 如果请求成功，且数据不为空，则更新数据
-                if (response.code === 0 && response.data.length > 0) {
-                    this.footerData = response.data[0];
-                    // 将数据缓存到localStorage
-                    localStorage.setItem('footerData', JSON.stringify(this.footerData));
-                } else {
-                    console.error('Failed to fetch footer data:', response.message);
-                }
-            } catch (error) {
-                console.error('Failed to fetch footer data:', error);
-            }
-        }
+        // async fetchFooterData() {
+        //     try {
+        //         // 获取Footer数据
+        //         const response = await getFooterData();
+        //         // 如果请求成功，且数据不为空，则更新数据
+        //         if (response.code === 0 && response.data.length > 0) {
+        //             this.footerData = response.data[0];
+        //             // 将数据缓存到localStorage
+        //             localStorage.setItem('footerData', JSON.stringify(this.footerData));
+        //         } else {
+        //             console.error('Failed to fetch footer data:', response.message);
+        //         }
+        //     } catch (error) {
+        //         console.error('Failed to fetch footer data:', error);
+        //     }
+        // }
     },
 };
 </script>

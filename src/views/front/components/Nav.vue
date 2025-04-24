@@ -18,12 +18,12 @@
 			<div class="login">
 				<div v-if="!isLogin" class="btn">
 					<div @click="login">登錄</div>
-					<div @click="login('add')">注冊</div>
+					<!-- <div @click="login('add')">注冊</div> -->
 				</div>
 				<div v-else class="loginOut">
 					<el-dropdown trigger="hover">
 						<div class="avatar-wrapper">
-							<el-avatar src="https://www.aliboxx.com/uploadfile/avatar/8.png"></el-avatar>
+							<el-avatar src=""></el-avatar>
 							<span style="font-size: 12px;margin-left:10px">{{ name }}</span>
 						</div>
 						<el-dropdown-menu slot="dropdown">

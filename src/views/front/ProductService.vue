@@ -10,11 +10,13 @@
 			<el-card class="top">
 				<div class="left">
 					<!-- 产品横向逐一展示 -->
-					<div v-for="product in products" :key="product.id" class="product-card">
-						<img :src="product.coverImage" alt="暂无图片" class="product-image"/>
-						<p>品牌：{{ product.brand }}</p>
-						<p>名称：{{ product.name }}</p>
-						<el-button type="primary" @click="viewDetails(product.id)">查看详情</el-button>
+					<div v-for="product in products" :key="product.id"  class="product-card">
+            <div @mouseover="mouseover">
+              <img :src="product.coverImage" alt="暂无图片" class="product-image"/>
+              <p style="text-align: left;">{{ product.name }}</p>
+              <p style="text-align: left; margin-top: 10px;">$ {{ product.salePrice }}</p>
+              <!-- <el-button type="primary" @click="viewDetails(product.id)">查看详情</el-button> -->
+            </div>
 					</div>
 				</div>
 			</el-card>
@@ -41,6 +43,7 @@ export default {
 
     mounted() {
         this.fetchProducts();
+        // this.mouseover();
     },
 
     methods: {
@@ -53,8 +56,16 @@ export default {
         },
         viewDetails(id) {
           this.$router.push({ name: 'ProductDetail', params: { id } });
+        },
+        mouseover() {
+          console.log()
+        },
+        mouseleave() {
+
         }
+
     },
+
 };
 </script>
 
