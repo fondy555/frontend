@@ -11,7 +11,7 @@
 				<div class="left">
 					<!-- 产品横向逐一展示 -->
 					<div v-for="product in products" :key="product.id"  class="product-card">
-            <div @mouseover="mouseover">
+            <div class="goods">
               <img :src="product.coverImage" alt="暂无图片" class="product-image"/>
               <p style="text-align: left;">{{ product.name }}</p>
               <p style="text-align: left; margin-top: 10px;">$ {{ product.salePrice }}</p>
@@ -58,7 +58,7 @@ export default {
           this.$router.push({ name: 'ProductDetail', params: { id } });
         },
         mouseover() {
-          console.log()
+          
         },
         mouseleave() {
 
@@ -88,6 +88,10 @@ export default {
 .container {
   flex: 1; // Allow the container to grow and fill available space
   margin-bottom: 100px; // Add space between container and footer
+}
+
+.product-card:hover {
+  transform: scale(1.1);
 }
 
 .left {

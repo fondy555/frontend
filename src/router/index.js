@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect: '/productService',
+        redirect: '/products',
     },
     {
         path: '/ProductDetail/:id',
@@ -35,6 +35,14 @@ const routes = [
         component: () => import('@/views/front/Home.vue'),
         meta: {
             title: '首页'
+        }
+    },
+    {
+        path: '/products',
+        name: 'Products',
+        component: () => import('@/views/front/Products.vue'),
+        meta: {
+            title: '測試頁面'
         }
     },
     {

@@ -1,8 +1,10 @@
 <template>
     <div>
-        <el-carousel :interval="5000" arrow="always" :height="carouselHeight">
+        <el-carousel :interval="5000" arrow="always" >
             <el-carousel-item v-for="(item, i) in swiperList" :key="i">
-                <el-image :src="encodeUrl(item.imageUrl)" alt="" style="width:100%;height:100%" fit="cover"
+                <!-- <el-image :src="encodeUrl(item.imageUrl)" alt="" style="width:100%;height:100%" fit="cover"
+                    @error="handleImageError" /> -->
+                    <el-image :src='require("@/assets/log.png")'' alt="" style="width:70%;" fit="fill"
                     @error="handleImageError" />
             </el-carousel-item>
         </el-carousel>
