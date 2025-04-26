@@ -57,7 +57,7 @@ export default {
                 // },
                 {
                     name: '首頁',
-                    path: '/ProductService',
+                    path: '/Products',
                 },
                 {
                     name: '關於我們',
